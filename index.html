@@ -44,7 +44,7 @@ a{color:var(--cyan)}
 .err{color:var(--bad);min-height:22px;margin-top:12px;font-weight:600}
 .hint{margin-top:18px;color:#9a7a94;font-size:13px}
 
-#app{display:none}
+#app{display:block}
 .top{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);
   background:rgba(9,1,15,.78);border-bottom:1px solid var(--line);
   display:flex;align-items:center;justify-content:space-between;padding:12px 6vw;gap:12px}
@@ -135,20 +135,6 @@ footer{padding:40px 6vw 70px;color:#9a7a94;font-size:13px;border-top:1px solid v
 </style>
 </head>
 <body>
-
-<div id="gate">
-  <div class="gate-box">
-    <div class="kicker">Acceso personal · contraseña 1564</div>
-    <div class="mega">JHON<br>MICHAEL<br>MACHACA<br>CHAMBI</div>
-    <p class="sub">Tu academia de mini robot: luces al ritmo, sonido y ESP32. Solo computadora y celular.</p>
-    <div class="login-row">
-      <input id="pwd" type="password" inputmode="numeric" maxlength="8" placeholder="••••" autocomplete="off" />
-      <button class="btn" id="enterBtn">Entrar</button>
-    </div>
-    <div class="err" id="err"></div>
-    <p class="hint">Contraseña del estudiante: <b style="color:#fff">1564</b></p>
-  </div>
-</div>
 
 <div id="app">
   <div class="top">
@@ -306,26 +292,11 @@ footer{padding:40px 6vw 70px;color:#9a7a94;font-size:13px;border-top:1px solid v
   </section>
 
   <footer>
-    Espacio personalizado de <b style="color:#fff">Jhon Michael Machaca Chambi</b> · acceso 1564 · mini robot, luces al ritmo y ESP32 · solo computadora y celular.
+    Espacio personalizado de <b style="color:#fff">Jhon Michael Machaca Chambi</b> · mini robot, luces al ritmo y ESP32 · solo computadora y celular.
   </footer>
 </div>
 
 <script>
-const PASS="1564";
-const enter=()=>{
-  const v=document.getElementById("pwd").value.trim();
-  if(v===PASS){
-    document.getElementById("gate").style.display="none";
-    document.getElementById("app").style.display="block";
-    window.scrollTo(0,0);
-    startVu();
-  }else{
-    document.getElementById("err").textContent="Contraseña incorrecta. La de Jhon es 1564.";
-  }
-};
-document.getElementById("enterBtn").onclick=enter;
-document.getElementById("pwd").addEventListener("keydown",e=>{if(e.key==="Enter")enter()});
-
 const vu=document.getElementById("vu");
 for(let i=0;i<12;i++){
   const b=document.createElement("div");
